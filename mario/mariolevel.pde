@@ -9,10 +9,10 @@ class MarioLevel extends Level {
   MarioLevel(float w, float h) { 
     super(w, h);
     textFont(createFont("fonts/acmesa.ttf", 8));
-    setViewBox(0,0,screenWidth,screenHeight);
-    mario = new Mario();    
+    setViewBox(0, 0, screenWidth, screenHeight);
+    mario = new Mario();
   }
-  
+
   void updateMario(Player mario_new) {
     updatePlayer(mario, mario_new);
     mario = mario_new;
@@ -27,7 +27,7 @@ class MarioLevel extends Level {
       super.draw();
       viewbox.track(this, mario);
       // just to be sure
-      if(mario.active!=null && mario.active.name!="dead" && (mario.x<-200 || mario.x>mario.layer.width+200 || mario.y<-200 || mario.y>mario.layer.height+200)) {
+      if (mario.active!=null && mario.active.name!="dead" && (mario.x<-200 || mario.x>mario.layer.width+200 || mario.y<-200 || mario.y>mario.layer.height+200)) {
         reset();
         return;
       }
