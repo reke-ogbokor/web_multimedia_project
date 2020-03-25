@@ -296,4 +296,3 @@ class Mario extends Player {
     layer.addForInteractorsOnly(fb);
   }
 }
-

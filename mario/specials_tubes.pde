@@ -81,4 +81,3 @@ class PipeBoundary extends Boundary {
     SoundManager.play(this);
   }
 }
-

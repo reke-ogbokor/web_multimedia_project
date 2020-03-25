@@ -132,4 +132,3 @@ class FlowerBlock extends MarioBlock {
     layer.addForPlayerOnly(f);
   }
 }
-

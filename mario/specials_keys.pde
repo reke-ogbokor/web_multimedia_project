@@ -62,4 +62,3 @@ class KeyHole extends Interactor {
 interface UnlockListener {
   void unlocked(Actor by, KeyHole hole);
 }
-

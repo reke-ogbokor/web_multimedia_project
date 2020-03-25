@@ -67,4 +67,3 @@ class MushroomTrigger extends MarioTrigger {
     removeTrigger();
   }
 }
-

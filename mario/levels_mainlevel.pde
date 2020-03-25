@@ -33,5 +33,5 @@ class MainLevel extends MarioLevel {
   void finish() {
     SoundManager.pause(this);
     super.finish();
-  }  
+  }
 }

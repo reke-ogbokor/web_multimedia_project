@@ -29,6 +29,6 @@ void reset() {
   clearScreens();
   addScreen("Bonus Level", new BonusLevel(width, height));
   addScreen("Dark Level", new DarkLevel(width, height));
-  addScreen("Main Level", new MainLevel(4*width, height));  
+  addScreen("Main Level", new RekeLevel(4*width, height));  
   setActiveScreen("Main Level");
 }
