@@ -69,6 +69,16 @@ class LevelOneMainLayer extends MarioLayer {
     addGroundPlatform("ground", 2015, height-97, 50, 44);
     
     addGroundPlatform("ground", 2064, height-113, 224, 60);
+    
+    addGroundPlatform("ground", 2992, height-96, 80, 48);
+    
+    addGroundPlatform("ground", 2992, height-96, 80, 48);
+    
+    addGroundPlatform("ground", 2992, height-96, 80, 48);
+    
+    addGroundPlatform("ground", 3120, height-96, 96, 48);
+    
+   
   }
 
   // some tubes for transport
@@ -89,6 +99,10 @@ class LevelOneMainLayer extends MarioLayer {
     
     for (int i=0; i<2; i++) {
       addBoundedInteractor(new CoinBlock(855+i*16, height-88));
+    }
+    
+    for (int i=0; i<3; i++) {
+      addBoundedInteractor(new CoinBlock(2856+i*16, height-88));
     }
   }
 }

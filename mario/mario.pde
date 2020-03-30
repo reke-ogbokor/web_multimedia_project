@@ -31,5 +31,5 @@ void reset() {
   addScreen("Dark Level", new DarkLevel(width, height));
   addScreen("Level One", new LevelOne(10*width, height));
   addScreen("Level Two", new LevelTwo(4*width, height));
-  setActiveScreen("Level Two");
+  setActiveScreen("Level One");
 }

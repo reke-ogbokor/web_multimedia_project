@@ -39,7 +39,7 @@ class FlyingKoopaTrigger extends MarioTrigger {
     super("koopa", x, y, w, h, _px, _py, _ix, _iy);
   }
   void run(LevelLayer layer, Actor actor, float[] intersection) {
-    Koopa k = new Koopa(x+px, py);
+    FlyingKoopa k = new FlyingKoopa(x+px, py);
     if (fx>0) { 
       k.setHorizontalFlip(true);
     }
