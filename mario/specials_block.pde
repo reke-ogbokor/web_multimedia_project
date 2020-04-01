@@ -92,8 +92,6 @@ class SkyBlock extends MarioBlock {
   void generate(float[] intersectionInformation) {}
 }
 
-
-
 /**
  * Mushroom block
  */

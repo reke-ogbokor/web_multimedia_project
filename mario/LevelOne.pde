@@ -9,11 +9,11 @@ class LevelOne extends MarioLevel {
     // main level layer
     LevelLayer layer = new LevelOneMainLayer(this);
     addLevelLayer("Main Layer", layer);
-    mario.setPosition(2800, height-64);
+    mario.setPosition(10, height-200);
     layer.addPlayer(mario);
 
     // And of course some background music!
-    SoundManager.load(this, "audio/bg/Overworld.mp3");
+    SoundManager.load(this, "audio/kr.mp3");
   }
 
   /**
