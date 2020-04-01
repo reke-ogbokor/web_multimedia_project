@@ -9,6 +9,7 @@ class LevelOneMainLayer extends MarioLayer {
     addBoundary(new Boundary(-1, 0, -1, height));
     addBoundary(new Boundary(width+1, height, width+1, 0));
 
+    addLava( -32, height-15, width, height); 
     addGrounds();
 
     addGroundPlatforms();
@@ -17,10 +18,6 @@ class LevelOneMainLayer extends MarioLayer {
 
     addSlants();
     
-    Lava lava = new Lava(616, height);
-    addInteractor(lava);
-
-    // add lots of just-in-time triggers
     //addTriggers();
 
     // add some tubes
@@ -46,12 +43,10 @@ class LevelOneMainLayer extends MarioLayer {
   }
 
   void addGroundPlatforms() {
-    // add some ground platforms    
+    // add some cave platforms    
     addGroundPlatform("ground", 305, height-96, 255, 34);
 
     addGroundPlatform("ground", 700, height-112, 120, 300);
-
-    //addGroundPlatform("ground", 1860, height-64, 98, 10);
 
     addGroundPlatform("ground", 1945, height-80, 65, 300);
 
