@@ -5,42 +5,28 @@ class LevelOneMainLayer extends MarioLayer {
 
   LevelOneMainLayer(Level owner) {
     super(owner);
-    addBackgroundSprite(new TilingSprite(new Sprite("graphics/backgrounds/yoshi-island2.png"), 0, 0, width, height));
-
-    // we don't want mario to walk off the level,
-    // so let's add some side walls
+    addBackgroundSprite(new TilingSprite(new Sprite("graphics/backgrounds/background.gif"), 0, 0, width, height));
     addBoundary(new Boundary(-1, 0, -1, height));
     addBoundary(new Boundary(width+1, height, width+1, 0));
 
-    // add general ground
-    float gap = 58;
-    addGround("ground", -32, height-48, -32 + width, height);
-    addBoundary(new Boundary(-32 + gap*32, height-47, -32 + gap*32, height));
-    gap += 2;
-    addBoundary(new Boundary(-31 + gap*32, height, -31 + gap*32, height-47));
+    addLava( -32, height-15, width, height); 
+    addGrounds();
 
     addGroundPlatforms();
-    addCoinBlocks();
-   
+
+    addSkyBlocks();
+
+    addSlants();
     
-    //addGoal(2060,height-100);
-
-
-    // mystery coins
-    //addForPlayerOnly(new DragonCoin(352, height-164));
-
-    // Let's also add a koopa on one of the slides
-    //Koopa koopa = new Koopa(264, height-178);
-    //addInteractor(koopa);
-
-    // add lots of just-in-time triggers
     //addTriggers();
 
     // add some tubes
     addTubes();
 
-    // key!
-    //addForPlayerOnly(new KeyPickup(2000, 364));
+
+
+    addGoal(3717, height - 250);
+
   }
 
   // In order to effect "just-in-time" sprite placement,
@@ -55,54 +41,94 @@ class LevelOneMainLayer extends MarioLayer {
     // when tripped, release a banzai bill!
     addTrigger(new BanzaiBillTrigger(1446, 310, 5, 74, 400, height-95, -6, 0));
   }
-  
+
   void addGroundPlatforms() {
-    // add some ground platforms    
-    addGroundPlatform("ground", 305, height-95, 255, 34);
-    
-    addGroundPlatform("ground", 700, height-112, 120, 64);
-    
-    addGroundPlatform("ground", 1860, height-64, 98, 10);
-    
-    addGroundPlatform("ground", 1952, height-80, 65, 27);
-    
-    addGroundPlatform("ground", 2015, height-97, 50, 44);
-    
-    addGroundPlatform("ground", 2064, height-113, 224, 60);
-    
-    addGroundPlatform("ground", 2992, height-96, 80, 48);
-    
-    addGroundPlatform("ground", 2992, height-96, 80, 48);
-    
-    addGroundPlatform("ground", 2992, height-96, 80, 48);
-    
-    addGroundPlatform("ground", 3120, height-96, 96, 48);
-    
-   
+    // add some cave platforms    
+    addGroundPlatform("ground", 305, height-96, 255, 34);
+
+    addGroundPlatform("ground", 700, height-112, 120, 300);
+
+    addGroundPlatform("ground", 1945, height-80, 65, 300);
+
+    addGroundPlatform("ground", 2040, height-97, 50, 300);
+
+    addGroundPlatform("ground", 2120, height-113, 224, 300);
+
+    addGroundPlatform("ground", 3392, height-98, 50, 300);
+
+    addGroundPlatform("ground", 3495, height-150, 50, 300);
+
+    addGroundPlatform("ground", 3600, height-202, 50, 300);
+
+    addGroundPlatform("ground", 3709, height-250, 50, 300);
   }
 
   // some tubes for transport
   void addTubes() {
-    // tube transport
-    //addTube(660, height-48, new LayerTeleportTrigger("background layer", 304+16, height/0.75-116));
-    addTube(2705, height-48, null);
-    addTube(2705+32, height-65, null);
+
+    addTube(2850, height-48, new LevelTeleportTrigger("Level One Dark Level", 2020+6, height-65, 16, 1, 16, height-32));
+
+    addUpsideDownTube(3392, 28);
+
+    addTube(1802, height-115, null);
   }
-  
-  void addCoinBlocks() {
+
+  void addGrounds() {
+    addGround("ground", -32, height-48, 550, height); 
+
+    addGround("ground", 950, height-48, 1500, height);
+
+    addGround("ground", 2442, height-48, 2719, height); 
+
+    addGround("ground", 2850, height-48, 2870, height);
+  }
+
+  void addSkyBlocks() {
+
     for (int i=0; i<3; i++) {
-      if (i == 1) {
-        continue;
-      }
-      addBoundedInteractor(new CoinBlock(616+i*16, height-105));
+      addBoundedInteractor(new SkyBlock(616+i*16, height-105));
     }
-    
-    for (int i=0; i<2; i++) {
-      addBoundedInteractor(new CoinBlock(855+i*16, height-88));
-    }
-    
+
     for (int i=0; i<3; i++) {
-      addBoundedInteractor(new CoinBlock(2856+i*16, height-88));
+      addBoundedInteractor(new SkyBlock(1530+i*16, height-90));
     }
+
+    for (int i=0; i<3; i++) {
+      addBoundedInteractor(new SkyBlock(1598+i*16, height-110));
+    }
+
+    for (int i=0; i<3; i++) {
+      addBoundedInteractor(new SkyBlock(1666+i*16, height-130));
+    }
+
+    for (int i=0; i<3; i++) {
+      addBoundedInteractor(new SkyBlock(1734+i*16, height-90));
+    }
+
+    for (int i=0; i<3; i++) {
+      addBoundedInteractor(new SkyBlock(1802+i*16, height-110));
+    }
+
+    for (int i=0; i<3; i++) {
+      addBoundedInteractor(new SkyBlock(2700+i*16, height-110));
+    }
+
+    for (int i=0; i<3; i++) {
+      addBoundedInteractor(new SkyBlock(2768+i*16, height-130));
+    }
+
+    for (int i=0; i<35; i++) {
+      addBoundedInteractor(new SkyBlock(width-29*16+i*16, 20));
+    }
+  }
+
+  void addSlants() {
+    addSlant(900, height-48);
+
+    addSlant(2400, height-48);
+
+    addSlant(2490, height-48);
+
+    addSlant(2580, height-48);
   }
 }
