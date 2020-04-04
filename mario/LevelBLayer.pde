@@ -40,7 +40,7 @@ class LevelBLayer extends MarioLayer {
     // addGround("ground", -31 + gap*32,height-48, width+32,height);
 
     // key!
-    addGoal(3717, height - 250);
+    addGoal(width - 100, groundLevel);
   }
 
   void addGrounds() {
