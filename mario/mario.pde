@@ -23,15 +23,14 @@ void initialize() {
   SoundManager.setDrawPosition(screenWidth-10, 10);
   frameRate(30);
   reset();
+  setActiveScreen("Level One");
 }
 
 void reset() {
   clearScreens();
-  addScreen("Bonus Level", new BonusLevel(width, height));
-  addScreen("Dark Level", new DarkLevel(width, height));
-  addScreen("Level One Dark Level", new LevelOneDarkLevel(width, height));
-  addScreen("Level One", new LevelOne(7.5*width, height));
-  addScreen("Level Two", new LevelTwo(4*width, height));
-  addScreen("Level Three", new LevelThree(4*width, height));
-  setActiveScreen("Level Three");
+  addScreen("Level One", new LevelR(7.5*width, height));
+  addScreen("Level One Dark Level", new LevelRDarkLevel(width, height));
+  addScreen("Level Two", new LevelMF(4*width, height));
+  addScreen("Level Three", new LevelMC(4*width, height));
+  addScreen("Level Four", new LevelB(4*width, height));
 }

@@ -2,14 +2,14 @@
  * Our "empty" level is a single layer
  * level, doing absolutely nothing.
  */
-class LevelTwo extends MarioLevel {
-  LevelTwo(float levelWidth, float levelHeight) {
+class LevelMC extends MarioLevel {
+  LevelMC(float levelWidth, float levelHeight) {
     super(levelWidth, levelHeight);
 
     // main level layer
-    LevelLayer layer = new LevelTwoLayer(this);
+    LevelLayer layer = new LevelMCLayer(this);
     addLevelLayer("Main Layer", layer);
-    mario.setPosition(16, height-64);
+    mario.setPosition(16, height-150);
     layer.addPlayer(mario);
 
     // And of course some background music!

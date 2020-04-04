@@ -1,7 +1,6 @@
-class LevelOneDarkLevelLayer extends MarioLayer implements UnlockListener {
-  KeyHole keyhole;
+class LevelRDarkLayer extends MarioLayer{
   
-  LevelOneDarkLevelLayer(Level parent) {
+  LevelRDarkLayer(Level parent) {
     super(parent);
 
     // repeating background sprite image
@@ -22,10 +21,6 @@ class LevelOneDarkLevelLayer extends MarioLayer implements UnlockListener {
     addTube(0, height-16, null);
     addTube(width-32, height-16, new LevelTeleportTrigger("Level One",  width-30,height-34,30,2,  3398,77));
 
-  }
-
-  void unlocked(Actor by, KeyHole hole) {
-    
   }
 
 }

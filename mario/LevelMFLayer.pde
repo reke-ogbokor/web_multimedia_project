@@ -1,7 +1,7 @@
 
-class LevelTwoLayer extends MarioLayer {
+class LevelMFLayer extends MarioLayer {
 
-  LevelTwoLayer(Level owner) {
+  LevelMFLayer(Level owner) {
     super(owner);
     addBackgroundSprite(new TilingSprite(new Sprite("graphics/backgrounds/bonus.gif"), 0, 0, width, height));
 

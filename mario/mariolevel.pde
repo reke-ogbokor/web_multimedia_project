@@ -5,6 +5,7 @@ class MarioLevel extends Level {
   Player mario;
   String wintext = "Goal!";
   int endCount = 0;
+  int levelSelect = 0;
 
   MarioLevel(float w, float h) { 
     super(w, h);
@@ -29,6 +30,7 @@ class MarioLevel extends Level {
       // just to be sure
       if (mario.active!=null && mario.active.name!="dead" && (mario.x<-200 || mario.x>mario.layer.width+200 || mario.y<-200 || mario.y>mario.layer.height+200)) {
         reset();
+
         return;
       }
     }   
@@ -39,6 +41,7 @@ class MarioLevel extends Level {
     // that this level can be swapped out.
     else {
       endCount++;
+
       fill(255);
       textFont(createFont("fonts/acmesa.ttf", 62));
       text(wintext, (512-textWidth(wintext))/2, 192);
@@ -46,7 +49,6 @@ class MarioLevel extends Level {
       rect(-1, -1, width+2, height+2);
       if (endCount>7.5*frameRate) {
         SoundManager.stop(this);
-        reset();
       }
     }
   }

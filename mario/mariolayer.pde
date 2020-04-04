@@ -159,22 +159,6 @@ class MarioLayer extends LevelLayer {
     // the finish line rope
     addForPlayerOnly(new Rope(xpos, hpos-16));
   }
-  
-  void addEndGoal(float xpos, float hpos, TeleportTrigger teleporter) {
-    hpos += 1;
-    // background post
-    Sprite goal_b = new Sprite("graphics/assorted/Goal-back.gif");
-    goal_b.align(CENTER, BOTTOM);
-    goal_b.setPosition(xpos, hpos);
-    addBackgroundSprite(goal_b);
-    // foreground post
-    Sprite goal_f = new Sprite("graphics/assorted/Goal-front.gif");
-    goal_f.align(CENTER, BOTTOM);
-    goal_f.setPosition(xpos+32, hpos);
-    addForegroundSprite(goal_f);
-    // the finish line rope
-    addForPlayerOnly(new Rope(xpos, hpos-16));
-  }
 
   // places a single tube with all the boundaries and behaviours
   void addTube(float x, float y, TeleportTrigger teleporter) {
