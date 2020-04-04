@@ -19,7 +19,7 @@ float DAMPENING = 0.75;
  * level, which we'll 
  */
 void initialize() {
-  SoundManager.mute(true);
+  SoundManager.mute(false);
   SoundManager.setDrawPosition(screenWidth-10, 10);
   frameRate(30);
   reset();
