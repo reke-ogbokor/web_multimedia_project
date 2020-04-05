@@ -13,11 +13,17 @@ class LevelBLayer extends MarioLayer {
 
     addLava(-32, height-15, width, height); 
 
-    addGrounds();
-
     addGroundPlatforms();
 
+    addGrounds();
+
+    addTubes();
+
     addSkyBlocks();
+
+    addCoins();
+
+    addCoinBlocks();
 
     // we don't want mario to walk off the level,
     // so let's add some side walls
@@ -29,7 +35,6 @@ class LevelBLayer extends MarioLayer {
 
     addGround("ground", -32, height-48, 550, height); 
 
-
     // add general ground, with a muncher pit
     // float gap = 58;
     // addGround("ground", -32,height-48, -32 + gap*32,height);
@@ -40,7 +45,7 @@ class LevelBLayer extends MarioLayer {
     // addGround("ground", -31 + gap*32,height-48, width+32,height);
 
     // key!
-    addGoal(width - 100, groundLevel);
+    addGoal(width - 50, groundLevel-210);
   }
 
   void addGrounds() {
@@ -49,10 +54,7 @@ class LevelBLayer extends MarioLayer {
     addGround("ground", -32, groundLevel, 760, height);
 
     // Second island
-    addGround("ground", 860, groundLevel, 1360, height);
-
-    // Third island
-    addGround("ground", 1900, groundLevel, width, height);
+    addGround("ground", 860, groundLevel, width, height);
 
   }
 
@@ -60,38 +62,88 @@ class LevelBLayer extends MarioLayer {
 
     // Start of first island
 
-    addGroundPlatform("ground", 305, groundLevel-48, 75, 33);
-    
-    addGroundPlatform("ground", 610, groundLevel-48, 75, 33);
+    addGroundPlatform("ground", 100, groundLevel-90, 125, 90);
 
-    addGroundPlatform("ground", 685, groundLevel-96, 84, 81);
+    addGroundPlatform("ground", 150, groundLevel-30, 100, 30);
+
+    addGroundPlatform("ground", 300, groundLevel-60, 50, 60);
+
+    addSlant(400, groundLevel);
+
+    addGroundPlatform("ground", 685, groundLevel-96, 84, 96);
+
+    addGroundPlatform("ground", 650, groundLevel-48, 75, 48);
 
     // End of first island
 
     // Start of second island
 
-    addGroundPlatform("ground", 1220, groundLevel-48, 75, 33);
+    addGroundPlatform("ground", 950, groundLevel-90, 100, 90);
 
-    addGroundPlatform("ground", 1295, groundLevel-96, 78, 81);
+    addGroundPlatform("ground", 900, groundLevel-60, 75, 60);
+
+    addGroundPlatform("ground", 950, groundLevel-30, 50, 30);
+
+    addSlant(1250, groundLevel);
+
+    addGroundPlatform("ground", 1598, groundLevel-120, 100, 120);
+
+    addGroundPlatform("ground", 1425, groundLevel-90, 50, 90);
+
+    addGroundPlatform("ground", 1500, groundLevel-60, 50, 60);
+
+    addGroundPlatform("ground", 1575, groundLevel-30, 50, 30);
+
+    addGroundPlatform("ground", 1898, groundLevel-30, 50, 30);
+
+    addGroundPlatform("ground", 1798, groundLevel-60, 50, 60);
+
+    addGroundPlatform("ground", 1698, groundLevel-90, 50, 90);
+
+    addGroundPlatform("ground", 1748, groundLevel-150, 50, 150);
+
+    addGroundPlatform("ground", 1848, groundLevel-180, 50, 180);
+
+    addGroundPlatform("ground", 1948.0, groundLevel-210, 2013, 210);
 
     // End of second island
-
 
   }
 
   void addSkyBlocks() {
 
-      for(int i=0; i<6; i++) {
-        addBoundedInteractor(new SkyBlock(1425+i*16,groundLevel-126));
+    for(int i=0; i<4; i++) {
+        addBoundedInteractor(new SkyBlock(475+i*16,groundLevel-126));
     }
 
-    for(int i=0; i<6; i++) {
-        addBoundedInteractor(new SkyBlock(1575+i*16,groundLevel-146));
+    for(int i=0; i<3; i++) {
+        addBoundedInteractor(new SkyBlock(350+i*16,groundLevel-150));
     }
 
-      for(int i=0; i<8; i++) {
-        addBoundedInteractor(new SkyBlock(1700+i*16,groundLevel-190));
+    for(int i=0; i<3; i++) {
+        addBoundedInteractor(new SkyBlock(1340+i*16,groundLevel-125));
     }
+
+  }
+
+  void addTubes() {
+    
+  }
+
+  void addCoins() {
+    
+    addCoins(100, groundLevel-115, 128);
+
+    addForPlayerOnly(new DragonCoin(365, groundLevel-175));
+
+  }
+
+  void addCoinBlocks() {
+
+    for (int i=0; i<6; i++) {
+      addBoundedInteractor(new CoinBlock(1115+i*16, groundLevel-60));
+    }
+
   }
 
 
