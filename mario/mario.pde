@@ -23,7 +23,7 @@ void initialize() {
   SoundManager.setDrawPosition(screenWidth-10, 10);
   frameRate(30);
   reset();
-  setActiveScreen("Level One");
+  
 }
 
 void reset() {
@@ -33,4 +33,5 @@ void reset() {
   addScreen("Level Two", new LevelMF(4*width, height));
   addScreen("Level Three", new LevelMC(4*width, height));
   addScreen("Level Four", new LevelB(4*width, height));
+  setActiveScreen("Level One");
 }

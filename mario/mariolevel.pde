@@ -58,7 +58,6 @@ class MarioLevel extends Level {
           if (getScreen(levelSelect[i]) == activeScreen) {
             reset();
             setActiveScreen(levelSelect[i+1]);
-            System.out.print(levelSelect[i]);
             break;
           }
         }
