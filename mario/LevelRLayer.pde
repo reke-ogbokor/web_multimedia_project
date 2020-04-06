@@ -17,29 +17,48 @@ class LevelOneMainLayer extends MarioLayer {
     addSkyBlocks();
 
     addSlants();
-    
-    //addTriggers();
+
+    addTriggers();
 
     // add some tubes
     addTubes();
 
+    Koopa[] koopa = new Koopa[8];
+    int placement = 450;
+    for (int i = 0; i < 8; i++) {
+      koopa[i] = new Koopa(placement, height - 120);
+      addInteractor(koopa[i]);
+      placement += 16;
+    }
 
-
-    addGoal(3717, height - 250);
-
+    addGoal(3680, height - 250);
   }
 
   // In order to effect "just-in-time" sprite placement,
   // we set up some trigger regions.
   void addTriggers() {
     // initial hidden mushroom
-    addTrigger(new MushroomTrigger(148, 370, 5, 12, 406, 373.9, 2, 0));
-    // koopas
-    addTrigger(new KoopaTrigger(412, 0, 5, height, 350, height-64, -0.2, 0));
-    addTrigger(new KoopaTrigger(562, 0, 5, height, 350, height-64, -0.2, 0));
-    addTrigger(new KoopaTrigger(916, 0, 5, height, 350, height-64, -0.2, 0));
-    // when tripped, release a banzai bill!
-    addTrigger(new BanzaiBillTrigger(1446, 310, 5, 74, 400, height-95, -6, 0));
+    addTrigger(new MushroomTrigger(100, 370, 5, 12, 190, 373.9, 4, 0));
+  
+    // Banzai Bill
+    addTrigger(new BanzaiBillTrigger(150, 310, 5, 74, 400, height-95, -6, 0));
+    
+    //Bullet Bill
+    for (int i = 0; i < 20; i++) {
+      addTrigger(new BulletBillTrigger(1000, 0, 5, height, ((float)Math.random() * 500), 0, 0, 2+(float)(Math.random() * 6)));
+    }
+    
+    addTrigger(new BulletBillTrigger(1500, 0, 5, height, 40, 0, 0, 15));
+    addTrigger(new BulletBillTrigger(1600, 0, 5, height, 40, 0, 0, 15));
+    addTrigger(new BulletBillTrigger(1660, 0, 5, height, 40, 0, 0, 20));
+    addTrigger(new BulletBillTrigger(1900, 0, 5, height, 30, 0, 0, 20));
+    //Rex
+    for (int i = 0; i < 15; i++) {
+      addTrigger(new RexTrigger(2400, 0, 5, height, 100 + ((float)Math.random() * 300), height-64, -0.2, 0));
+    }
+    
+    
+    
   }
 
   void addGroundPlatforms() {
@@ -56,11 +75,11 @@ class LevelOneMainLayer extends MarioLayer {
 
     addGroundPlatform("ground", 3392, height-98, 50, 300);
 
-    addGroundPlatform("ground", 3495, height-150, 50, 300);
+    addGroundPlatform("ground", 3475, height-150, 50, 300);
 
-    addGroundPlatform("ground", 3600, height-202, 50, 300);
+    addGroundPlatform("ground", 3570, height-202, 50, 300);
 
-    addGroundPlatform("ground", 3709, height-250, 50, 300);
+    addGroundPlatform("ground", 3670, height-250, 50, 300);
   }
 
   // some tubes for transport
@@ -70,7 +89,7 @@ class LevelOneMainLayer extends MarioLayer {
 
     addUpsideDownTube(3392, 28);
 
-    addTube(1802, height-115, null);
+
   }
 
   void addGrounds() {
@@ -107,6 +126,10 @@ class LevelOneMainLayer extends MarioLayer {
 
     for (int i=0; i<3; i++) {
       addBoundedInteractor(new SkyBlock(1802+i*16, height-110));
+    }
+
+    for (int i=0; i<3; i++) {
+      addBoundedInteractor(new SkyBlock(1880+i*16, height-130));
     }
 
     for (int i=0; i<3; i++) {

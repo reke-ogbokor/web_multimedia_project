@@ -19,6 +19,10 @@ class MarioLevel extends Level {
     mario = mario_new;
   }
 
+  float getPlayerPos() {
+    return mario.x;
+  }
+
   /**
    * Now then, the draw loop: render mario in
    * glorious canvas definition.
@@ -27,6 +31,7 @@ class MarioLevel extends Level {
     if (!finished) {
       super.draw();
       viewbox.track(this, mario);
+
       // just to be sure
       if (mario.active!=null && mario.active.name!="dead" && (mario.x<-200 || mario.x>mario.layer.width+200 || mario.y<-200 || mario.y>mario.layer.height+200)) {
         for (int i = 0; i < levelSelect.length; i++) {
@@ -47,22 +52,20 @@ class MarioLevel extends Level {
     // that this level can be swapped out.
     else {
       endCount++;
-      
+
       fill(255);
       textFont(createFont("fonts/acmesa.ttf", 62));
       text(wintext, (512-textWidth(wintext))/2, 192);
       fill(0, 8);
       rect(-1, -1, width+2, height+2);
       if (endCount>7.5*frameRate) {
-        for (int i = 0; i < levelSelect.length; i++) {
-          if (getScreen(levelSelect[i]) == activeScreen) {
-            reset();
-            setActiveScreen(levelSelect[i+1]);
-            break;
-          }
+        for (int i = 0; i < 3; i++) {
+          reset();
+          setActiveScreen(levelSelect[i+1]);
+          break;
         }
-        SoundManager.stop(this);
       }
+      SoundManager.stop(this);
     }
   }
 }

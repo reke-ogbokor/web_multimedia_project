@@ -1603,8 +1603,10 @@ abstract class Level extends Screen {
    */
   void draw() {
     translate(-viewbox.x, -viewbox.y);
+    
     for(LevelLayer l: layers) {
       l.draw();
+      
     }
   }
   
@@ -4417,6 +4419,7 @@ class ViewBox {
     // coordinates, and forced to integer values.
     float ax = round(who.getX()),
           ay = round(who.getY());
+          
 
     // Ideally the actor is in the center of the viewbox,
     // but the level edges may require different positioning.
