@@ -17,13 +17,15 @@ class LevelBLayer extends MarioLayer {
 
     addGrounds();
 
-    addTubes();
+    addBushes();
 
     addSkyBlocks();
 
     addCoins();
 
     addCoinBlocks();
+
+    addTriggers();
 
     // we don't want mario to walk off the level,
     // so let's add some side walls
@@ -33,7 +35,7 @@ class LevelBLayer extends MarioLayer {
 
 //    addGround("ground", -32,height-48, width + 32,height);
 
-    addGround("ground", -32, height-48, 550, height); 
+    // addGround("ground", -32, height-48, 550, height); 
 
     // add general ground, with a muncher pit
     // float gap = 58;
@@ -100,7 +102,7 @@ class LevelBLayer extends MarioLayer {
 
     addGroundPlatform("ground", 1698, groundLevel-90, 50, 90);
 
-    addGroundPlatform("ground", 1948.0, groundLevel-210, 2013, 210);
+    addGroundPlatform("ground", 1948, groundLevel-210, 2013, 210);
 
     // End of second island
 
@@ -121,6 +123,14 @@ class LevelBLayer extends MarioLayer {
     }
 
     for(int i=0; i<3; i++) {
+        addBoundedInteractor(new SkyBlock(1215+i*16,groundLevel-150));
+    }
+
+    for(int i=0; i<3; i++) {
+        addBoundedInteractor(new SkyBlock(1090+i*16,groundLevel-175));
+    }
+
+    for(int i=0; i<3; i++) {
         addBoundedInteractor(new SkyBlock(1756+i*16,groundLevel-150));
     }
 
@@ -130,8 +140,30 @@ class LevelBLayer extends MarioLayer {
 
   }
 
-  void addTubes() {
-    
+  void addTriggers() {
+    addTrigger(new MushroomTrigger(20, height-100, 5, 12, 200, 373.9, 2, 0));
+
+    addKoopas();
+
+    addBanzaiBill();
+
+  }
+
+  void addKoopas() {
+    addTrigger(new FlyingKoopaTrigger(100, 0, 5, height, 450, groundLevel-16, 0.2, 0));
+
+    addTrigger(new FlyingKoopaTrigger(475, 0, 5, height, 260, groundLevel-16, 0.2, 0));
+
+    addTrigger(new FlyingKoopaTrigger(950, groundLevel-30, 10, 1, 90, groundLevel-130, 0.2, 0));
+
+    addTrigger(new FlyingKoopaTrigger(1575, 0, 10, height, 260, groundLevel-16, 0.2, 0));
+
+    }
+
+  void addBanzaiBill() {
+     addTrigger(new BanzaiBillTrigger(1115, groundLevel-45, 5, 1, 400, groundLevel-16, -3, 0));
+
+    addTrigger(new BanzaiBillTrigger(1211, groundLevel-45, 5, 1, 400, groundLevel-16, -6, 0));
   }
 
   void addCoins() {
@@ -149,6 +181,9 @@ class LevelBLayer extends MarioLayer {
     addCoins(1856, groundLevel-200, 32);
 
     addForPlayerOnly(new DragonCoin(365, groundLevel-175));
+
+    addForPlayerOnly(new DragonCoin(1105, groundLevel-200));
+
 
   }
 
