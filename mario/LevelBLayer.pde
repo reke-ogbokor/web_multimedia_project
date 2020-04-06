@@ -100,10 +100,6 @@ class LevelBLayer extends MarioLayer {
 
     addGroundPlatform("ground", 1698, groundLevel-90, 50, 90);
 
-    addGroundPlatform("ground", 1748, groundLevel-150, 50, 150);
-
-    addGroundPlatform("ground", 1848, groundLevel-180, 50, 180);
-
     addGroundPlatform("ground", 1948.0, groundLevel-210, 2013, 210);
 
     // End of second island
@@ -124,6 +120,14 @@ class LevelBLayer extends MarioLayer {
         addBoundedInteractor(new SkyBlock(1340+i*16,groundLevel-125));
     }
 
+    for(int i=0; i<3; i++) {
+        addBoundedInteractor(new SkyBlock(1756+i*16,groundLevel-150));
+    }
+
+    for(int i=0; i<3; i++) {
+        addBoundedInteractor(new SkyBlock(1856+i*16,groundLevel-180));
+    }
+
   }
 
   void addTubes() {
@@ -133,6 +137,16 @@ class LevelBLayer extends MarioLayer {
   void addCoins() {
     
     addCoins(100, groundLevel-115, 128);
+
+    addCoins(1908, groundLevel-40, 32);
+
+    addCoins(1808, groundLevel-70, 32);
+
+    addCoins(1708, groundLevel-100, 32);
+
+    addCoins(1756, groundLevel-170, 32);
+
+    addCoins(1856, groundLevel-200, 32);
 
     addForPlayerOnly(new DragonCoin(365, groundLevel-175));
 
