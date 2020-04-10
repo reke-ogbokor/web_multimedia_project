@@ -9,7 +9,7 @@ class LevelR extends MarioLevel {
     // main level layer
     LevelLayer layer = new LevelOneMainLayer(this);
     addLevelLayer("Main Layer", layer);
-    mario.setPosition(20, height - 120);//1880+16
+    mario.setPosition(10, height - 160);//1880+16
     layer.addPlayer(mario);
 
     // And of course some background music!

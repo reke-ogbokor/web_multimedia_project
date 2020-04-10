@@ -1,9 +1,11 @@
+int counter = 0;
+
 /**
  * We must set the screen dimensions to something
  */
-final int BLOCK = 16,
-          screenWidth = 32*BLOCK,
-          screenHeight = 27*BLOCK;
+final int BLOCK = 16, 
+  screenWidth = 32*BLOCK, 
+  screenHeight = 27*BLOCK;
 
 /**
  * Gravity consists of a uniform downforce,
@@ -23,15 +25,24 @@ void initialize() {
   SoundManager.setDrawPosition(screenWidth-10, 10);
   frameRate(30);
   reset();
-  
 }
 
 void reset() {
   clearScreens();
-  addScreen("Level One", new LevelR(7.5*width, height));
+  addScreen("Level One", new LevelR(7.3*width, height));
   addScreen("Level One Dark Level", new LevelRDarkLevel(width, height));
   addScreen("Level Two", new LevelMF(4*width, height));
   addScreen("Level Three", new LevelMC(4*width, height));
   addScreen("Level Four", new LevelB(4*width, height));
   setActiveScreen("Level One");
+  
+}
+
+void gameFinished() {
+  reset();
+  initialize();
+}
+
+void nextLevel(String levelName) {
+  setActiveScreen(levelName);
 }

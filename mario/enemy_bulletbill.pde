@@ -30,7 +30,7 @@ class BulletBill extends MarioEnemy {
    */
   void setupStates() {
     State flying = new State("flying", "graphics/enemies/bulletbill.gif");
-    SoundManager.load(flying, "audio/Banzai.mp3");
+    SoundManager.load(flying, "audio/thump.mp3");
     addState(flying);
     setCurrentState("flying");
     SoundManager.play(flying);
