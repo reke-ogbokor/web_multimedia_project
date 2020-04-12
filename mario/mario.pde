@@ -39,7 +39,6 @@ void reset() {
 }
 
 void gameFinished() {
-  reset();
   initialize();
 }
 

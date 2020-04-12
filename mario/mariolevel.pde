@@ -42,9 +42,11 @@ class MarioLevel extends Level {
     else {
       endCount++;
       fill(255);
+      
       textFont(createFont("fonts/acmesa.ttf", 62));
       if (activeScreen == getScreen("Level Four")) {
-        text(gameComplete, (512-textWidth(gameComplete))/4, 192);
+        textSize(57);
+        text(gameComplete, (512-textWidth(gameComplete))/2, 192);
       }
       else {
         text(wintext, (512-textWidth(wintext))/2, 192);
